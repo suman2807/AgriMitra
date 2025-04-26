@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'FarmLink - Smart Farming Assistant', // Update title
+  title: 'AgriMitra - Smart Farming Assistant', // Update title
   description: 'Get AI-powered crop recommendations, fertilizer suggestions, and disease detection.', // Update description
 };
 

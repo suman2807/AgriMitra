@@ -36,7 +36,7 @@ export default function Home() {
       <header className="text-center mb-8 sm:mb-12">
         <h1 className="text-4xl sm:text-5xl font-bold text-primary mb-2 flex items-center justify-center gap-3">
           <Sprout className="size-10 sm:size-12 text-primary" /> {/* Use Sprout for main logo */}
-          AgriMind AI
+          AgriMitra
         </h1>
         <p className="text-lg text-muted-foreground">
           Your AI-Powered Smart Farming Assistant
@@ -107,7 +107,7 @@ export default function Home() {
         </Tabs>
       </main>
        <footer className="mt-12 text-center text-muted-foreground text-sm">
-            Made with 💚 by ss | AgriMind AI &copy; 2025
+            Made with 💚 by ss | AgriMitra &copy; 2025
         </footer>
     </div>
   );
