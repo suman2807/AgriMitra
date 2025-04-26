@@ -6,11 +6,12 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+// Import the new AI flow and its types
 import {
-  Soil,
-  FertilizerRecommendation,
-  getFertilizerRecommendation,
-} from '@/services/fertilizer';
+  FertilizerRecommendationInput,
+  fertilizerRecommendation,
+  FertilizerRecommendationOutput,
+} from '@/ai/flows/fertilizer-recommendation-flow';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -30,7 +31,8 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2, Droplets, Beaker, Thermometer, Wheat, MapPin, Sprout } from 'lucide-react'; // Added MapPin for Soil Type and imported Sprout
+import { Loader2, Beaker, Thermometer, Wheat, MapPin, Sprout } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const formSchema = z.object({
   soilType: z.string().min(1, 'Soil type is required.'),
@@ -40,12 +42,14 @@ const formSchema = z.object({
 });
 
 type FertilizerSuggestionFormProps = {
-  onSuggestion: (result: FertilizerRecommendation) => void;
+  // Update the prop type to expect the AI flow's output
+  onSuggestion: (result: FertilizerRecommendationOutput) => void;
 };
 
 export default function FertilizerSuggestionForm({ onSuggestion }: FertilizerSuggestionFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -61,16 +65,28 @@ export default function FertilizerSuggestionForm({ onSuggestion }: FertilizerSug
     setIsLoading(true);
     setError(null);
     try {
-      const soilData: Soil = {
+      // Prepare input for the AI flow
+      const input: FertilizerRecommendationInput = {
         soilType: values.soilType,
         pH: values.pH,
         temperature: values.temperature,
+        crop: values.crop,
       };
-      const result = await getFertilizerRecommendation(soilData, values.crop);
+      // Call the new AI flow
+      const result = await fertilizerRecommendation(input);
       onSuggestion(result);
+       toast({
+            title: 'Suggestion Ready',
+            description: 'Fertilizer recommendation generated successfully.',
+        });
     } catch (err) {
       console.error('Error getting fertilizer suggestion:', err);
-      setError('Failed to get suggestion. Please try again.');
+      setError('Failed to get suggestion. Please check your inputs or try again later.');
+      toast({
+            variant: 'destructive',
+            title: 'Suggestion Failed',
+            description: 'Could not generate fertilizer recommendation.',
+      });
     } finally {
       setIsLoading(false);
     }
@@ -106,6 +122,7 @@ export default function FertilizerSuggestionForm({ onSuggestion }: FertilizerSug
                             <SelectItem value="clayey">Clayey</SelectItem>
                             <SelectItem value="silt">Silt</SelectItem>
                             <SelectItem value="peat">Peat</SelectItem>
+                             <SelectItem value="chalky">Chalky</SelectItem>
                         </SelectContent>
                     </Select>
                     <FormMessage />
@@ -145,7 +162,7 @@ export default function FertilizerSuggestionForm({ onSuggestion }: FertilizerSug
                   <FormItem>
                     <FormLabel className="flex items-center gap-1"><Sprout className="size-4 text-muted-foreground" /> Crop Name</FormLabel>
                     <FormControl>
-                      <Input type="text" placeholder="e.g., Corn" {...field} />
+                      <Input type="text" placeholder="e.g., Corn, Wheat, Tomato" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
