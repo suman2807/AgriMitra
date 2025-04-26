@@ -93,7 +93,7 @@ export default function Home() {
       </main>
        <footer className="mt-12 text-center text-muted-foreground text-sm">
             {/* Updated footer text */}
-            Made with <span style={{ color: 'white' }}>♡</span> by ss | FarmLink &copy; {new Date().getFullYear()}
+            Made with 💚 by ss | FarmLink &copy; 2025
         </footer>
     </div>
   );
