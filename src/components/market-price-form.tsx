@@ -108,7 +108,7 @@ export default function MarketPriceForm({ onPriceUpdate }: MarketPriceFormProps)
                   <FormItem>
                     <FormLabel className="flex items-center gap-1"><MapPin className="size-4 text-muted-foreground" /> Location</FormLabel>
                     <FormControl>
-                      <Input type="text" placeholder="e.g., Chicago, Illinois or Midwest USA" {...field} />
+                      <Input type="text" placeholder="e.g., Mumbai, Maharashtra or North India" {...field} />
                     </FormControl>
                      <FormMessage />
                   </FormItem>
