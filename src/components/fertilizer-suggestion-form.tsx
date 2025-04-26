@@ -30,7 +30,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2, Droplets, Beaker, Thermometer, Wheat, MapPin } from 'lucide-react'; // Added MapPin for Soil Type
+import { Loader2, Droplets, Beaker, Thermometer, Wheat, MapPin, Sprout } from 'lucide-react'; // Added MapPin for Soil Type and imported Sprout
 
 const formSchema = z.object({
   soilType: z.string().min(1, 'Soil type is required.'),
