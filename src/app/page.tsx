@@ -10,8 +10,8 @@ import type { CropRecommendationOutput } from '@/ai/flows/crop-recommendation';
 // Update import to use the AI flow output type
 import type { FertilizerRecommendationOutput } from '@/ai/flows/fertilizer-recommendation-flow';
 import type { DetectCropDiseaseOutput } from '@/ai/flows/crop-disease-detection';
-// Import Tractor icon and remove unused Droplets icon
-import { Leaf, Wheat, ScanEye, Tractor } from 'lucide-react';
+// Import Sprout, Tractor icons and remove unused Leaf/Seedling icon
+import { Wheat, ScanEye, Tractor, Sprout } from 'lucide-react'; // Changed Seedling to Sprout
 
 export default function Home() {
   // State to hold the results for each feature
@@ -33,7 +33,7 @@ export default function Home() {
       <header className="text-center mb-8 sm:mb-12">
         <h1 className="text-4xl sm:text-5xl font-bold text-primary mb-2 flex items-center justify-center gap-3">
           {/* Replace SVG logo with Tractor icon */}
-          <Tractor className="size-10 sm:size-12 text-primary" />
+          <Sprout className="size-10 sm:size-12 text-primary" /> {/* Changed Tractor to Sprout for main logo */}
           FarmLink
         </h1>
         <p className="text-lg text-muted-foreground">
@@ -45,7 +45,7 @@ export default function Home() {
         <Tabs defaultValue="recommendation" className="w-full" onValueChange={handleTabChange}>
           <TabsList className="grid w-full grid-cols-3 bg-primary/10 p-1 h-auto rounded-lg mb-6">
             <TabsTrigger value="recommendation" className="py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-md flex items-center gap-2 transition-all duration-200">
-              <Leaf className="size-4" /> Crop Recommendation
+              <Sprout className="size-4" /> Crop Recommendation {/* Changed Seedling to Sprout */}
             </TabsTrigger>
             <TabsTrigger value="suggestion" className="py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-md flex items-center gap-2 transition-all duration-200">
               <Wheat className="size-4" /> Fertilizer Suggestion
@@ -60,7 +60,7 @@ export default function Home() {
             {recommendationResult && (
               <ResultsDisplay
                 title="Crop Recommendations"
-                icon={Leaf}
+                icon={Sprout} // Use Sprout icon
                 results={recommendationResult}
                 type="recommendation"
               />

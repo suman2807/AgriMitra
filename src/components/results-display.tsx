@@ -2,7 +2,8 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { CheckCircle, Info, AlertTriangle, Leaf, Wheat, ScanEye, Thermometer, Droplets, CloudRain, Beaker, Sprout, BrainCircuit, HelpCircle, Lightbulb } from 'lucide-react'; // Added more icons
+// Added Sprout to the import list and removed Leaf/Seedling
+import { CheckCircle, Info, AlertTriangle, Wheat, ScanEye, Thermometer, Droplets, CloudRain, Beaker, Sprout, BrainCircuit, HelpCircle, Lightbulb } from 'lucide-react'; // Changed Seedling to Sprout
 
 // No longer need FertilizerRecommendation type from the mock service
 import type { FertilizerRecommendationOutput } from '@/ai/flows/fertilizer-recommendation-flow';
@@ -45,7 +46,7 @@ export default function ResultsDisplay({ title, icon: TitleIcon, results, type }
             <Card key={index} className="bg-card/50">
               <CardHeader className="pb-2">
                 <CardTitle className="text-lg flex items-center gap-2">
-                    <Leaf className="text-primary" /> {crop.cropName}
+                    <Sprout className="text-primary" /> {crop.cropName} {/* Use Sprout icon */}
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-sm space-y-1">

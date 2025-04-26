@@ -23,7 +23,8 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2, Leaf, BrainCircuit, Sprout, Droplets, Thermometer, CloudRain } from 'lucide-react';
+// Import Sprout icon and remove unused Seedling/Leaf icon
+import { Loader2, Sprout, BrainCircuit, Droplets, Thermometer, CloudRain } from 'lucide-react'; // Changed Seedling to Sprout
 
 const formSchema = z.object({
   nitrogenLevel: z.coerce.number().min(0, 'Nitrogen level cannot be negative.'),
@@ -73,7 +74,7 @@ export default function CropRecommendationForm({ onRecommendation }: CropRecomme
     <Card className="w-full shadow-lg">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <Leaf className="text-primary" />
+          <Sprout className="text-primary" /> {/* Use Sprout icon */}
           Get Crop Recommendations
         </CardTitle>
       </CardHeader>
