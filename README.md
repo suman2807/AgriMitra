@@ -9,6 +9,7 @@
 
 AgriMitra is an AI-powered assistant for smart farming, built with Next.js and Google AI Genkit. It empowers farmers with actionable insights for better yields and sustainable agriculture—all through a clean, authentication-free interface.
 
+![img_alt](https://github.com/suman2807/AgriMitra/blob/main/Screenshot%202025-08-26%20014608.png?raw=true)
 
 ---
 
