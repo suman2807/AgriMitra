@@ -96,6 +96,8 @@ src/
 - **Government Schemes:** Discover relevant support programs
 - **Crop Calendar:** Personalized farming task reminders
 
+  ![img_alt](https://github.com/suman2807/AgriMitra/blob/main/Screenshot%202025-08-26%20014730.png?raw=true)
+
 ### 🎨 Design Highlights
 - Clean, professional interface
 - Modern agricultural color palette
