@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.8);
+}
+
+@layer base {
+  :root {
+    /* Enhanced color palette for modern agricultural theme */
+    --background: 120 15% 97%; /* Softer, cleaner white with green hint */
+    --foreground: 120 25% 12%; /* Rich dark green for text */
+    --card: 120 15% 99%; /* Pure white cards */
+    --card-foreground: 120 25% 12%; /* Dark green text */
+    --popover: 120 15% 99%; /* Pure white popovers */
+    --popover-foreground: 120 25% 12%; /* Dark green text */
+    --primary: 120 45% 35%; /* Rich forest green */
+    --primary-foreground: 0 0% 100%; /* Pure white text */
+    --secondary: 120 20% 90%; /* Light green-gray */
+    --secondary-foreground: 120 25% 20%; /* Dark green text */
+    --muted: 120 15% 94%; /* Very light green-gray */
+    --muted-foreground: 120 15% 45%; /* Medium green-gray text */
+    --accent: 45 95% 55%; /* Vibrant golden yellow */
+    --accent-foreground: 45 100% 8%; /* Dark brown text */
+    --success: 142 71% 45%; /* Fresh green for success states */
+    --success-foreground: 0 0% 100%; /* White text */
+    --warning: 38 92% 50%; /* Orange for warnings */
+    --warning-foreground: 0 0% 100%; /* White text */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 120 15% 88%; /* Subtle green-gray border */
+    --input: 120 15% 96%; /* Light input background */
+    --ring: 120 45% 35%; /* Primary color for focus rings */
+    --chart-1: 120 60% 50%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 45 87% 67%;
+    --radius: 0.75rem; /* Slightly larger radius for modern look */
+    --sidebar-background: 120 15% 98%;
+    --sidebar-foreground: 120 25% 12%;
+    --sidebar-primary: 120 45% 35%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 120 15% 94%;
+    --sidebar-accent-foreground: 120 25% 12%;
+    --sidebar-border: 120 15% 88%;
+    --sidebar-ring: 120 45% 35%;
+  }
+  .dark {
+    /* Enhanced dark mode for agricultural theme */
+    --background: 120 15% 8%; /* Deep forest green-black */
+    --foreground: 120 15% 95%; /* Light green-white */
+    --card: 120 15% 11%; /* Slightly lighter dark background */
+    --card-foreground: 120 15% 95%; /* Light text */
+    --popover: 120 15% 11%; /* Dark popover */
+    --popover-foreground: 120 15% 95%; /* Light text */
+    --primary: 120 50% 45%; /* Brighter green for dark mode */
+    --primary-foreground: 120 15% 8%; /* Dark text on primary */
+    --secondary: 120 15% 18%; /* Dark secondary */
+    --secondary-foreground: 120 15% 90%; /* Light text */
+    --muted: 120 15% 20%; /* Dark muted */
+    --muted-foreground: 120 15% 65%; /* Medium light text */
+    --accent: 45 95% 60%; /* Brighter golden yellow */
+    --accent-foreground: 45 100% 8%; /* Dark text */
+    --success: 142 71% 50%; /* Bright success green */
+    --success-foreground: 120 15% 8%; /* Dark text */
+    --warning: 38 92% 55%; /* Bright warning orange */
+    --warning-foreground: 120 15% 8%; /* Dark text */
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 120 15% 25%; /* Dark border */
+    --input: 120 15% 15%; /* Dark input */
+    --ring: 120 50% 45%; /* Primary color ring */
+    --chart-1: 120 60% 55%;
+    --chart-2: 173 58% 45%;
+    --chart-3: 197 37% 35%;
+    --chart-4: 43 74% 70%;
+    --chart-5: 45 87% 70%;
+    --sidebar-background: 120 15% 8%;
+    --sidebar-foreground: 120 15% 95%;
+    --sidebar-primary: 120 50% 45%;
+    --sidebar-primary-foreground: 120 15% 8%;
+    --sidebar-accent: 120 15% 18%;
+    --sidebar-accent-foreground: 120 15% 90%;
+    --sidebar-border: 120 15% 25%;
+    --sidebar-ring: 120 50% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+}
+
+@layer components {
+  /* Custom component styles */
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+    font-feature-settings: "liga" 1, "kern" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    line-height: 1.4;
+    padding: 0.1em 0;
+    display: inline-block;
+  }
+  
+  .brand-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-feature-settings: "liga" 1, "kern" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+    padding: 0.1em 0;
+    display: inline-block;
+    overflow: visible;
+  }
+  
+  .shadow-glow {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.15);
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+  
+  .feature-card {
+    @apply bg-card rounded-xl border border-border p-6 transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary/80 text-secondary-foreground font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-md;
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-soft {
+    animation: pulse-soft 3s ease-in-out infinite;
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out;
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes pulse-soft {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+  
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Smooth transitions for all interactive elements */
+  .smooth-transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  /* Focus styles */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+}
